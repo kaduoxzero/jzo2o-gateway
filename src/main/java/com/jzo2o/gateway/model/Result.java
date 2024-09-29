@@ -10,11 +10,14 @@ import lombok.NoArgsConstructor;
 public class Result<T> {
     public static final String REQUEST_OK = "OK";
     private int code;
+    private String message;
     private String msg;
+    private T result;
     private T data;
+
     private String requestId;
 
     public static Result<?> error(int code, String msg) {
-        return new Result<>(code, msg, null, null);
+        return new Result<>(code, msg,msg,null, null, null);
     }
 }
