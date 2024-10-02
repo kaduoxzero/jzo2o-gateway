@@ -2,6 +2,7 @@ server:
   port: 11500  #端口
   tomcat:
     uri-encoding: UTF-8   #服务编码
+
 spring:
   profiles:
     active: dev
@@ -79,9 +80,9 @@ spring:
           uri: lb://jzo2o-health
           predicates:
             - Path=/health/**
-      globals: # 全局的跨域处理
+      globalcors: # 全局的跨域处理
         add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
-        corsConfigurations:
+        cors-configurations:
           '[/**]':
             allowedOriginPatterns: # 允许哪些网站的跨域请求
               - "*"
